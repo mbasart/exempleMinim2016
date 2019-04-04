@@ -10,5 +10,5 @@ export class Subject {
 
     _id: string;
     name: string;
-    students: Student["_id"][];
+    students: Student[];
 }
