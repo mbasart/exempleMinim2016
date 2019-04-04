@@ -4,6 +4,7 @@
       <div class="card">
         <div class="card-content">
           <form #subjectForm="ngForm" (ngSubmit)="addStudent(subjectForm)">
+            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="subjectService.selectedSubject._id">
             <div class="row">
               <div class="input-field col s12">
                 <input type="text" name="name" #name="ngModel" [(ngModel)]="subjectService.selectedSubject.name" placeholder="Enter subject name">
@@ -33,7 +34,23 @@
         <tbody>
           <tr *ngFor="let subject of subjectService.subject">
             <td>{{subject.name}}</td>
-            <td>{{subject.students.name}}</td>
+            <td>
+              <table>
+                <tr *ngFor="let student of subject.students">
+                  <td>{{student.name}}</td>
+              </table>
+            </td>
+            <td>
+              <table>
+                <tr *ngFor="let student of subject.students">
+                  <td>{{student.address}}</td>
+              </table>
+            </td>
+            <td>
+              <a (click)="editSubject(subject)">
+                <i class="material-icons">edit</i>
+              </a>
+            </td>
           </tr>
         </tbody>
       </table>

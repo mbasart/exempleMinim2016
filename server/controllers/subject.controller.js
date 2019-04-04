@@ -14,7 +14,10 @@ subjectCtrl.getOneSubject = async(req,res) => {
 }
 
 subjectCtrl.createSubject = async(req,res) => {
-    const subject = new Subject(req.body);
+    const subject = new Subject({
+        name: req.body.name,
+        students: req.body.students
+    });
     await subject.save();
     res.json('received');
 }

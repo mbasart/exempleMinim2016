@@ -26,12 +26,14 @@ export class SubjectsComponent implements OnInit {
       .subscribe(res => {
         this.resetForm(form);
         M.toast({html: 'Alumna afegit correctament'});
+        this.getSubjects();
       })
     } else{
       this.subjectService.postSubject(form.value)
       .subscribe(res => {
         this.resetForm(form);
         M.toast({html: 'Assignatura creada correctament'});
+        this.getSubjects();
       })
     }
   }
