@@ -1,4 +1,5 @@
 const Subject = require('../models/subject');
+const Student = require('../models/student');
 
 const subjectCtrl = {};
 
@@ -24,11 +25,8 @@ subjectCtrl.createSubject = async(req,res) => {
 
 subjectCtrl.editSubject = async(req,res) => {
     const {id} = req.params;
-    const subject = {
-        name: req.body.name,
-        students: req.body.students
-    }
-    await Subject.findByIdAndUpdate(id, {$set: subject}, {new: true});
+    const student = req.body.students
+    await Subject.findByIdAndUpdate(id, {$push: {students: student}});
     res.json({status: 'Subject updated'});
 }
 

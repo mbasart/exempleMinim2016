@@ -46,6 +46,10 @@ export class SubjectsComponent implements OnInit {
     })
   }
 
+  editSubject(subject: Subject) {
+    this.subjectService.selectedSubject = subject;
+  }
+
   resetForm(form?: NgForm) {
     if(form){
       form.reset();

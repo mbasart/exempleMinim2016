@@ -10,7 +10,7 @@
                 <input type="text" name="name" #name="ngModel" [(ngModel)]="subjectService.selectedSubject.name" placeholder="Enter subject name">
               </div>
               <div class="input-field col s12">
-                <input type="text" name="students" #students="ngModel" [(ngModel)]="subjectService.selectedSubject.students" placeholder="Enter student id">
+                <input type="text" name="students" #students="ngModel" [(ngModel)]="subjectService.selectedSubject.students._id" placeholder="Enter student id">
               </div>
               <div class="card-action">
                 <div class="input-field col s12">
@@ -27,13 +27,21 @@
       <table>
         <thead>
           <th>Name</th>
+          <th>Id student</th>
           <th>Students Name</th>
           <th>Students address</th>
-          <th>Operations</th>
+          <th>Phones</th>
+          <th>Edit</th>
         </thead>
         <tbody>
           <tr *ngFor="let subject of subjectService.subject">
             <td>{{subject.name}}</td>
+            <td>
+              <table>
+                <tr *ngFor="let student of subject.students">
+                  <td>{{student._id}}</td>
+              </table>
+            </td>
             <td>
               <table>
                 <tr *ngFor="let student of subject.students">
@@ -44,6 +52,18 @@
               <table>
                 <tr *ngFor="let student of subject.students">
                   <td>{{student.address}}</td>
+              </table>
+            </td>
+            <td>
+              <table>
+                <tr *ngFor="let student of subject.students">
+                  <td>
+                    <table>
+                      <tr *ngFor="let phone of student.phones">
+                        <td>{{phone.phone}}</td>
+                      </tr>
+                    </table>
+                  </td>
               </table>
             </td>
             <td>
