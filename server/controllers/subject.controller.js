@@ -31,7 +31,7 @@ subjectCtrl.editSubject = async(req,res) => {
 }
 
 subjectCtrl.deleteSubject = async(req,res) => {
-    await ubject.findByIdAndRemove(req.params.id);
+    await Subject.findByIdAndRemove(req.params.id);
     res.json({status: 'subject deleted'});
 }
 

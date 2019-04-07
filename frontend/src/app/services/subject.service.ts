@@ -26,4 +26,8 @@ export class SubjectService {
   putStudent(subject: Subject) {
     return this.http.put(this.URL_API + `/subject/${subject._id}`, subject);
   }
+
+  deleteSubject(_id: string) {
+    return this.http.delete(this.URL_API + `/subject/${_id}`)
+  }
 }

@@ -57,4 +57,15 @@ export class SubjectsComponent implements OnInit {
     }
   }
 
+  deleteSubject(_id: string, form: NgForm) {
+    if(confirm('Are you sure you want to delete it?')){
+      this.subjectService.deleteSubject(_id)
+        .subscribe(res =>{
+          this.getSubjects();
+          this.resetForm(form);
+          M.toast({html: 'Deleted Successfully'});
+        })
+    }
+  }
+
 }

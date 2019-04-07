@@ -31,7 +31,7 @@
           <th>Students Name</th>
           <th>Students address</th>
           <th>Phones</th>
-          <th>Edit</th>
+          <th>Edit and delete</th>
         </thead>
         <tbody>
           <tr *ngFor="let subject of subjectService.subject">
@@ -69,6 +69,9 @@
             <td>
               <a (click)="editSubject(subject)">
                 <i class="material-icons">edit</i>
+              </a>
+              <a (click)="deleteSubject(subject._id, subjectForm)">
+                <i class="material-icons">delete</i>
               </a>
             </td>
           </tr>
