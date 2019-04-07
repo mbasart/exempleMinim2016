@@ -10,5 +10,5 @@ export class Student {
     _id: string;
     name: string;
     address: string;
-    phones: {id: String, phone: String}[];
+    phones: {work: String, home: String}[];
 }
